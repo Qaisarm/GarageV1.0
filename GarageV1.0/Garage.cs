@@ -9,12 +9,12 @@ namespace GarageV1._0
     {
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+           
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
