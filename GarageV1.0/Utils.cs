@@ -12,15 +12,15 @@ namespace GarageV1._0
         ///  Exactly as the Console class for example
         ///  
         ///  <summary>
-        public static string AskForStringInput(string prompt)
+        internal static string AskForStringInput(string prompt)
         {
-            bool correct = true;
             string input; //Scope
 
             do // Repeat
             {
                 Console.WriteLine(prompt);
                 input = Console.ReadLine();
+                Console.WriteLine();
 
 
                 //If answer is not null or empty string
@@ -28,10 +28,13 @@ namespace GarageV1._0
                 if (!string.IsNullOrEmpty(input))
                 {
                     //Set bool correct to false to exit loop
-
-                    correct = false;
+                    break;
                 }
-            } while (correct); //until we have get a correct value
+                else
+                {
+                    Console.WriteLine(  "\n Please enter in Correct format");
+                }
+            } while (true); //until we have get a correct value
 
             return input;  //return value
 
@@ -44,21 +47,21 @@ namespace GarageV1._0
 
             do // Repeat
             {
-                string input = AskForStringInput(prompt);
+                string value = AskForStringInput(prompt);
 
                 //Try to parse string to int returns bool
 
                 //If true exit loop
 
-                success = int.TryParse(input, out answer);
+                success = int.TryParse(value, out answer);
                 if (!success)
                 {
                     //Write errormessage
 
-                    Console.WriteLine("This is not a number\n Please enter a number again.");
+                    Console.WriteLine("This is not a number\nPlease enter a number again.");
 
                 }
-            } while (success);
+            } while (!success);
 
             //Returns parsed string
 

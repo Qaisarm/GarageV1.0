@@ -2,12 +2,13 @@
 
 namespace GarageV1._0
 {
-    internal class GarageHandler
+    internal class GarageHandler : IGarageHandler
     {
-        internal object CreatGarage(string name, int capacity)
+        public Garage<Vehicle> CreateGarage(string name, int capacity)
         {
-            return new Garage(name, capacity);
+            return new Garage<Vehicle>(name, capacity);
         }
+
 
         internal void ListOfAllParkedVehicles(Garage<Vehicle> garage)
         {

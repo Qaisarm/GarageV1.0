@@ -7,11 +7,13 @@ namespace GarageV1._0
     
     class ConsoleUI
     {
-        static GarageHandler garageHand = new GarageHandler();
+        static GarageHandler garageHandler = new GarageHandler();
+
         static public void MainMenu()
         {
-            var input = Utils.AskForIntInput("Please Select from the options from the Menue:" 
-                + "\n1 - Create as new Garage" + "\n(0 Close the App)");
+            var input = Utils.AskForIntInput("Please Select from the options from the Menu:" 
+                + " \n1 - Create a new Garage"
+                + " \n0 - Close the App");
             switch (input)
             {
                 case 1:
@@ -19,10 +21,10 @@ namespace GarageV1._0
                     break;
                 case 0:
                     return;
+
                 default:
                     Console.WriteLine("Please choose a valid option:");
                     MainMenu();
-
                     break;
             }
         }
@@ -39,14 +41,15 @@ namespace GarageV1._0
                     + "(Enter 0 to go back to Main Menu)");
                 if (garageCapacity == 0) break;
 
-                var garage = garageHand.CreatGarage(garageName, garageCapacity);
+                var garage = garageHandler.CreateGarage(garageName, garageCapacity);
 
-                Console.WriteLine($" \"{ garage.Name}'s\"Garage  with a Maximum Capacity of {garage.Capacity} has been successfully Created.");
+                Console.WriteLine($" \"{ garage.Name}'s\"Garage  with a Maximum Capacity of {garage.MaxCapacity} has been successfully Created.");
                 GarageMenu(garage);
+                break;
             }
         }
 
-        private static void GarageMenu(Garage<Vehicle> garage)
+        private static void GarageMenu( Garage<Vehicle> garage)
         {
             Console.WriteLine("");
             var input = Utils.AskForIntInput("___________________________" +
@@ -61,8 +64,21 @@ namespace GarageV1._0
             switch (input)
             {
                 case 1: 
-                        garageHand.ListOfAllParkedVehicles(garage);
+                    garageHandler.ListOfAllParkedVehicles(garage);
                     GarageMenu(garage);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 0:
+                    MainMenu();
                     break;
 
                 default:

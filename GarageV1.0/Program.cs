@@ -7,7 +7,9 @@ namespace GarageV1._0
         
         static void Main(string[] args)
         {
-            ConsoleUI.MainMenu();
+           
+                ConsoleUI.MainMenu();
+            
         }
     }
 }

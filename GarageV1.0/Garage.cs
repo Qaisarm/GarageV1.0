@@ -11,7 +11,7 @@ namespace GarageV1._0
         private Vehicle[] ParkedVehicles;
 
         public string Name;
-        public static int MaxCapacity;
+        public int MaxCapacity;
 
         // Count all occupied spaces
         public int Count => ParkedVehicles.Count(c => c != null);
@@ -19,7 +19,6 @@ namespace GarageV1._0
         // Check whether the Garage is full or not
 
         public bool IsFull => MaxCapacity <= Count;
-
         public Garage(string name, int capacity)
         {
             Name = name;
